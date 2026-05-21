@@ -1,0 +1,412 @@
+:root {
+    --bg-dark: #0a0a0c;
+    --bg-card: #141519;
+    --accent: #00ffcc; /* EWC Neon Cyan */
+    --text-main: #ffffff;
+    --text-dim: #8b8c91;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: rgba(10, 10, 12, 0.9);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(0, 255, 204, 0.2);
+}
+
+.nav-brand {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.highlight {
+    color: var(--accent);
+}
+
+.sponsor-tag {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dim);
+}
+
+.sponsor-tag span {
+    color: #ff3366; 
+    letter-spacing: 1px;
+}
+
+/* Hero Section */
+.hero {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, #1a1c23 0%, var(--bg-dark) 70%);
+    text-align: center;
+    border-bottom: 2px solid var(--accent);
+}
+
+.main-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.team-logo, .sponsor-logo {
+    width: 120px; /* Apne hisaab se adjust kar lena */
+    height: auto;
+}
+
+.cross {
+    font-size: 2rem;
+    color: var(--text-dim);
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.hero h1 span {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--accent);
+}
+
+.hero p {
+    font-size: 1.5rem;
+    color: var(--text-dim);
+    margin-top: 15px;
+    letter-spacing: 2px;
+}
+
+/* Roster Section */
+.roster-section {
+    padding: 80px 5%;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+.line {
+    height: 4px;
+    width: 100px;
+    background-color: var(--accent);
+    margin: 10px auto 0;
+    box-shadow: 0 0 15px var(--accent);
+}
+
+/* Roster Grid & Typography Cards */
+.roster-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.player-card {
+    background: var(--bg-card);
+    position: relative;
+    padding: 50px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Left aligned for aggressive typography look */
+    transition: all 0.4s ease;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%);
+    border-left: 4px solid #333;
+    overflow: hidden;
+}
+
+.player-card:hover {
+    transform: translateY(-5px);
+    background: #1a1c23;
+    border-left-color: var(--accent);
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Background Watermark Number (e.g., 01, 02) */
+.bg-number {
+    position: absolute;
+    right: -10px;
+    bottom: -30px;
+    font-size: 8rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.02);
+    transition: color 0.4s ease;
+    z-index: 0;
+}
+
+.player-card:hover .bg-number {
+    color: rgba(0, 255, 204, 0.05); /* Slight neon glow on hover */
+}
+
+/* Card Content (z-index ensure it stays above the watermark) */
+.card-content {
+    position: relative;
+    z-index: 1;
+}
+
+.ign {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.real-name {
+    font-size: 1.2rem;
+    color: var(--text-dim);
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+.role-badge {
+    background: transparent;
+    color: var(--accent);
+    padding: 8px 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid var(--accent);
+    clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+}
+
+
+/* =========================================
+   PLAYER PROFILE PAGE STYLES
+   ========================================= */
+
+.profile-hero {
+    height: 40vh; /* Chhota hero section profile ke liye */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at top, #1a1c23 0%, var(--bg-dark) 100%);
+    text-align: center;
+    border-bottom: 2px solid var(--accent);
+}
+
+.profile-hero h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.profile-hero h1 span {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--accent);
+}
+
+.profile-hero p {
+    font-size: 1.5rem;
+    color: var(--text-dim);
+    margin-top: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.details-section {
+    padding: 60px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.detail-box {
+    background: var(--bg-card);
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+    border-left: 4px solid var(--accent);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.detail-box h3 {
+    font-size: 1.2rem;
+    color: var(--text-dim);
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.game-id, .social-handle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1;
+}
+
+.sub-text {
+    margin-top: 10px;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.social-icon {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    font-size: 3rem;
+    opacity: 0.1;
+    transition: all 0.3s ease;
+}
+
+/* Hover Effects for Social Boxes */
+.social-box:hover {
+    transform: translateY(-5px);
+}
+
+.social-box:hover .social-icon {
+    opacity: 0.5;
+    transform: scale(1.2);
+}
+
+.yt-box:hover {
+    border-left-color: #ff0000;
+    box-shadow: 10px 10px 30px rgba(255, 0, 0, 0.2);
+}
+
+.insta-box:hover {
+    border-left-color: #e1306c;
+    box-shadow: 10px 10px 30px rgba(225, 48, 108, 0.2);
+}
+
+/* Back Button */
+.back-btn-container {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.back-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: transparent;
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border: 2px solid var(--text-dim);
+    transition: all 0.3s ease;
+    clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
+}
+
+.back-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(0, 255, 204, 0.05);
+}
+
+/* =========================================
+   OFFICIAL SOCIAL BUTTONS & FOOTER
+   ========================================= */
+
+/* Hero Social Buttons */
+.official-socials {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.social-btn {
+    padding: 12px 30px;
+    border: 2px solid var(--accent);
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
+}
+
+.vertex-btn:hover {
+    background: var(--accent);
+    color: var(--bg-dark);
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
+}
+
+.gwd-btn {
+    border-color: #ff3366; /* GWD Pirates specific color */
+    color: #ffffff;
+}
+
+.gwd-btn:hover {
+    background: #ff3366;
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(255, 51, 102, 0.5);
+    border-color: #ff3366;
+}
+
+/* Profile Page Logos Adjustment */
+.profile-logos {
+    margin-bottom: 20px;
+}
+
+.profile-logos .team-logo, 
+.profile-logos .sponsor-logo {
+    width: 80px; /* Home page se thoda chhota size profile page ke liye */
+}
+
+.profile-logos .cross {
+    font-size: 1.5rem;
+}
+
+/* Copyright Footer */
+.site-footer {
+    text-align: center;
+    padding: 30px 20px;
+    background: #0a0a0c;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 80px;
+    color: var(--text-dim);
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.site-footer span {
+    color: var(--accent);
+    font-weight: 600;
+}
